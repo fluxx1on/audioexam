@@ -27,14 +27,22 @@ li {
     transition: all 0.3s ease;
 }
 
-li:hover {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
-}
-
 a {
     color: #333;
     text-decoration: none;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
 }
 
 audio {
