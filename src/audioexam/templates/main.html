@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Список аудио-файлов</title>
+</head>
+<body>
+	<h1>Список аудио-файлов:</h1>
+	<ul>
+	{% for audio_file in audio_files %}
+		<li>
+			<audio controls>
+				<source src="{{ audio_file.audio_file.url }}" type="{{ audio_file.audio_file.content_type }}">
+				Ваш браузер не поддерживает аудио-элемент.
+			</audio>
+			<p><strong>{{ audio_file.name }}</strong></p>
+		</li>
+	{% empty %}
+		<li>Нет доступных аудио-файлов.</li>
+	{% endfor %}
+	</ul>
+</body>
+</html>
