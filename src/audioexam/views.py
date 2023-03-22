@@ -5,12 +5,12 @@ from .models import Document
 
 def create_document(request):
     if request.method == 'POST':
-        title = request.POST['title']
+        name = request.POST['title']
         text = request.POST['text']
-        document = Document(title=title, text=text)
+        document = Document(name=name, text=text)
         document.save()
         return redirect('main')
-    return render(request, 'create_document.html')
+    return render(request, 'base.html')
  
 class AudioList(View):
 

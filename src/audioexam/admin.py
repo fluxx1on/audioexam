@@ -1,3 +1,6 @@
 from django.contrib import admin
+from django.shortcuts import render, HttpResponseRedirect
+from .models import *
 
-# Register your models here.
+admin.site.register(Document)
+admin.site.register(Audio)

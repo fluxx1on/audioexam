@@ -11,8 +11,8 @@ class Document(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = "Уведомление"
-        verbose_name_plural = "Уведомления"
+        verbose_name = "Документ"
+        verbose_name_plural = "Документы"
 
 @receiver(post_save, sender=Document)
 def postRequestFields(sender, instance, created, **kwargs):
@@ -28,5 +28,5 @@ class Audio(models.Model):
         return self.document.name
 
     class Meta:
-        verbose_name = "Уведомление"
-        verbose_name_plural = "Уведомления"
+        verbose_name = "Аудио"
+        verbose_name_plural = "Аудио"
