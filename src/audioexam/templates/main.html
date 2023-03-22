@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Список аудио-файлов</title>
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+	<li><a href="{% url 'main' %}">Аудио</a></li>
+    <li><a href="{% url 'create_document' %}">Новый документ</a></li>
+	<h1>Список аудио-файлов:</h1>
+	<ul>
+	{% for audio_file in audio %}
+		<li>
+			<audio controls>
+				<source src="{{ audio_file.audio_file.url }}" type="{{ audio_file.audio_file.content_type }}">
+				Ваш браузер не поддерживает аудио-элемент.
+			</audio>
+			<p><strong>{{ audio_file.document.name }}</strong></p>
+		</li>
+	{% empty %}
+		<li>Нет доступных аудио-файлов.</li>
+	{% endfor %}
+	</ul>
+</body>
+</html>
