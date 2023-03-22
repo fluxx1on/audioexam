@@ -7,9 +7,12 @@ from gtts import gTTS
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 
+from config.settings import MEDIA_ROOT, MEDIA_URL
+
 def create_audio_file(name, text):
-    audio_file_path = 'audio_files\\' + name[:14] + '.mp3'
+    audio_file_path = 'audioexam\\audio_files\\' + name[:14] + '.mp3'
     audio_file_full_path = os.path.join(os.getcwd(), audio_file_path)
+    print(audio_file_full_path, MEDIA_URL, MEDIA_ROOT)
     if not os.path.exists(audio_file_full_path):
         tts = gTTS(text=text, lang='ru')
         tts.save(audio_file_full_path)

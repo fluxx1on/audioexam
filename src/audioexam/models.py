@@ -14,14 +14,14 @@ class Document(models.Model):
         verbose_name = "Документ"
         verbose_name_plural = "Документы"
 
-@receiver(post_save, sender=Document)
+"""@receiver(post_save, sender=Document)
 def postRequestFields(sender, instance, created, **kwargs):
     if created:
         instance.name = instance.text[0:30]
-        instance.save()
+        instance.save()"""
 
 class Audio(models.Model):
-    audio_file = models.FileField("Аудио", upload_to='audio_files/')
+    audio_file = models.FileField("Аудио")
     document = models.OneToOneField(Document, on_delete=models.CASCADE)
 
     def __str__(self):
