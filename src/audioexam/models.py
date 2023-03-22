@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from django.db.models.signals import pre_save, post_save, post_init, m2m_changed
 
 class Document(models.Model):
-    name = models.CharField("Название", max_length=127)
+    name = models.CharField("Название", max_length=30)
     text = models.TextField()
 
     def __str__(self):
@@ -17,7 +17,7 @@ class Document(models.Model):
 @receiver(post_save, sender=Document)
 def postRequestFields(sender, instance, created, **kwargs):
     if created:
-        instance.name = instance.text[0:127]
+        instance.name = instance.text[0:30]
         instance.save()
 
 class Audio(models.Model):
