@@ -21,7 +21,7 @@ def postRequestFields(sender, instance, created, **kwargs):
         instance.save()"""
 
 class Audio(models.Model):
-    audio_file = models.FileField("Аудио")
+    audio_file = models.FileField("Аудио", upload_to=".\\audio_files\\")
     document = models.OneToOneField(Document, on_delete=models.CASCADE)
 
     def __str__(self):
